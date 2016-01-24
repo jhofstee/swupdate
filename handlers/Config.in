@@ -51,6 +51,16 @@ config CFI
 	  Handler to store images in flash in raw mode,
 	  without UBI
 
+config CFIHAMMING1
+	bool "cfi (1bit Hamming)"
+	depends on MTD
+	default n
+	help
+	  Handler to store images in flash in raw mode, with 1bit hamming
+	  OOB instead of the algoritm used. E.g. Useful on certain omaps
+	  to store SPL in the regions where the ROMcode tries to load from.
+	  (assumes sector size of 512 and page size of 2048)
+
 config RAW
 	bool "raw"
 	default n
